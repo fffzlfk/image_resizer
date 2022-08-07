@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2.0.0
+      - name: Install dependencies
+        run: |
+          poetry install
+      - name: Run black
+        run: |
+          poetry run black .
+      - name: Run tests
+        run: |
+          poetry run python -m unittest discover -s tests -p "*_test.py"
