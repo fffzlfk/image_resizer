@@ -16,13 +16,18 @@ def image_resizing(origin: Image, target_size: int, file: str):
         mid = (l + r) // 2
         resized = origin.resize([int(aspect_ratio * mid), mid])
         out = io.BytesIO()
-        resized.save(out, format=origin.format)
+        resized.save(out, format=origin.format, quality=95, subsampling=0)
         size = out.tell()
         debug(f"mid={mid}, size={size}")
         if size <= target_size:
             if target_size - size < target_size * 0.01:
                 basename = filepath2basename_without_extension(file)
-                resized.save(f"{basename}_resized.{origin.format.lower()}")
+                resized.save(
+                    f"{basename}_resized.{origin.format.lower()}",
+                    format=origin.format,
+                    quality=95,
+                    subsampling=0,
+                )
                 break
             l = mid + 1
         else:
