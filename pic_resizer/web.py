@@ -47,5 +47,5 @@ def upload_file():
                         f.close()
 
 
-def serve():
-    app.run()
+def serve(host: str, port: int):
+    app.run(host=host, port=port)

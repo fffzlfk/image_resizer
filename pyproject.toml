@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pic_resizer"
-version = "0.1.6"
+version = "0.1.7"
 description = "A image resizing tool."
 authors = ["fffzlfk <1319933925qq@gmail.com>"]
 

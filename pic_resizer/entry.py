@@ -38,9 +38,13 @@ def cli(file: str, size):
 
 
 @click.command(help="Operating in the web app")
-def web():
+@click.option(
+    "--host", "-h", type=str, default="127.0.0.1", help="The hostname to listen on"
+)
+@click.option("--port", "-p", type=int, default=5000, help="The port of the webserver")
+def web(host, port):
     click.echo("in web")
-    serve()
+    serve(host, port)
 
 
 @click.version_option(__version__)
