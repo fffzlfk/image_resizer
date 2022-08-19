@@ -5,7 +5,7 @@ from PIL import Image
 from .lib import image_resizing
 from .utils import filepath2basename_without_extension, parse_file_size
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, template_folder="templates", static_folder="static")
 
 
 @app.route("/")

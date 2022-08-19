@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "pic_resizer"
-version = "0.1.7"
+version = "0.1.8"
 description = "A image resizing tool."
 authors = ["fffzlfk <1319933925qq@gmail.com>"]
+license = "Apache"
+readme = "README.md"
+repository = "https://github.com/fffzlfk/pic_resizer"
+keywords = ["image-resizer", "image-resizing"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
